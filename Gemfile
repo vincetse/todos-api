@@ -54,3 +54,10 @@ group :test do
   gem 'faker'
   gem 'database_cleaner'
 end
+
+# https://github.com/ianheggie/health_check
+gem "health_check"
+
+group :production do
+  gem 'newrelic_rpm'
+end

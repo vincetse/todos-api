@@ -62,6 +62,8 @@ GEM
     ffi (1.10.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    health_check (3.0.0)
+      railties (>= 5.0)
     i18n (1.5.1)
       concurrent-ruby (~> 1.0)
     listen (3.1.5)
@@ -81,6 +83,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.2.6)
+    newrelic_rpm (5.6.0.349)
     nio4r (2.3.1)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
@@ -166,7 +169,9 @@ DEPENDENCIES
   database_cleaner
   factory_bot_rails (~> 4.11)
   faker
+  health_check
   listen (>= 3.0.5, < 3.2)
+  newrelic_rpm
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.2)
