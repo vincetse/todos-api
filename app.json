@@ -1,0 +1,22 @@
+{
+  "addons": [
+    "heroku-postgresql",
+    "heroku-redis"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ],
+  "env": {
+    "REDIS_URL": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "name": "rails-todos-api",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
