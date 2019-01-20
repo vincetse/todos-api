@@ -1,6 +1,6 @@
 {
   "name": "Todo API",
-  "description": "A todo API",
+  "description": "A simple RESTful API",
   "keywords": [
     "todo",
     "rails",
