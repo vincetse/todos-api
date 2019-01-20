@@ -1,22 +1,53 @@
 {
+  "name": "Todo API",
+  "description": "A todo API",
+  "keywords": [
+    "todo",
+    "rails",
+    "api"
+  ],
+  "repository": "https://github.com/jane-doe/small-sharp-tool",
+  "success_url": "/health-check",
+  "scripts": {
+  },
+  "env": {
+    "SECRET_TOKEN": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "WEB_CONCURRENCY": {
+      "description": "The number of processes to run.",
+      "value": "5"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "image": "heroku/ruby",
   "addons": [
-    "heroku-postgresql",
-    "heroku-redis"
+    {
+      "plan": "heroku-redis:hobby-dev"
+    },
+    {
+      "plan": "heroku-postgresql:hobby-dev",
+      "options": {
+        "version": "10.6"
+      }
+    }
   ],
   "buildpacks": [
     {
       "url": "heroku/ruby"
     }
   ],
-  "env": {
-    "REDIS_URL": {
-      "required": true
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "bundle exec rake test"
+      }
     }
-  },
-  "formation": {
-  },
-  "name": "rails-todos-api",
-  "scripts": {
-  },
-  "stack": "heroku-18"
+  }
 }
