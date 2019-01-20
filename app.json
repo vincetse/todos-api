@@ -1,6 +1,6 @@
 {
   "name": "Todo API",
-  "description": "A todo API",
+  "description": "A simple RESTful API",
   "keywords": [
     "todo",
     "rails",
@@ -34,7 +34,7 @@
     {
       "plan": "heroku-postgresql:hobby-dev",
       "options": {
-        "version": "10.6"
+        "version": "10"
       }
     }
   ],
