@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/vincetse/todos-api.svg?branch=master)](https://travis-ci.org/vincetse/todos-api)
+
 # Todos API
 
 https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-one

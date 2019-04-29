@@ -1,0 +1,4 @@
+.git
+.git*
+Dockefile
+docker-compose.yml

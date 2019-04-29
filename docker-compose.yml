@@ -1,0 +1,35 @@
+version: "3"
+services:
+  web:
+    image: "vincetse/todos-api"
+    environment:
+      PORT: "3000"
+      RAILS_ENV: "production"
+      DATABASE_URL: "postgres://postgres:p0stgres@db/app"
+    ports:
+    - "3000:3000"
+    command:
+    - "foreman"
+    - "run"
+    - "web"
+    depends_on:
+    - "db"
+
+  migrate:
+    image: "vincetse/todos-api"
+    environment:
+      RAILS_ENV: "production"
+      DATABASE_URL: "postgres://postgres:p0stgres@db/app"
+    command:
+    - "foreman"
+    - "run"
+    - "release"
+    depends_on:
+    - "db"
+
+  db:
+    image: "postgres:11-alpine"
+    environment:
+      POSTGRES_DB: "app"
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: p0stgres
