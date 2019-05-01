@@ -5,8 +5,17 @@ services:
 - postgresql
 addons:
   postgresql: "9.6"
+env:
+  global:
+  - secure: "XilskvgSjIwBzoFwNwaNTh3RSIKj/dp/3NlxgnBPD3ZsufEfQR+n8aOBv9uCEAtob4CZhkN7TENPLA6o8A3V/Cyt4VY2eprXeoqpCZXUc9gFUGO1QLbErsr9nfq8bn/SpTvf4U7dLlcW65m8I5loWkgfW5/oOTe+HfDVtAZW0i+gIyQxCLMaWCf2XVPVwH06bmYUAauW5XZT6YQjM4sHWHjT96Ok00rdOGI0F1sB9JLhcfZvVTvr/67Y/qY/tLRJ/dHnw1bMPeQjprRR4CZPRDUlVxRaEkAzsqBMC+eueQyNmvnKechIF9+DLkz2rTGvJtWFEDSFgt59SRF1CVAHslFuc+T7UwRWXeFC5jNgifq30Ab07MHzv2ymtyh7eWMto/OGo4tYIsUN0Y96tuf9c75bXkDBDGtFJz8Y1iwB0y5v3Lqcf7chmj+eYkr/jk1N4NEWGoK5vuIjJYIU4pTKBijeSUt38/OGAeLm5xyhmohYaNGm/mbVZxlkzWEJex110fisExhhGljSOuohs9WAW2l4RXpkkbBn+bc7sD+S8Sbbl3wYLYGGpSdKjGHfctvrn+vA9uf9NP9762e8Pop4MGZFMEo9OHLc8Ye7fCytGUmr75JNcPO4grp2Qi2FMXnePWMxrLSrnclSlxsTJjZfVa5rKACAOS7feKMMII7vTuM="
+before_script:
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- ./cc-test-reporter before-build
 script:
 - bundle install --jobs=3 --retry=3
 - bundle exec rake db:create
 - bundle exec rake db:migrate
 - bundle exec rspec
+after_script:
+- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
