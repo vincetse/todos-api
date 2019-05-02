@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 services:
   web:
     image: "vincetse/todos-api"
@@ -15,6 +15,24 @@ services:
     - "web"
     depends_on:
     - "db"
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 1
+        delay: "10s"
+        order: "start-first"
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: "256Mi"
+        reservations:
+          cpus: "0.50"
+          memory: "256Mi"
+      restart_policy:
+        condition: "on-failure"
+        delay: "5s"
+        max_attempts: 3
+        window: "60s"
 
   migrate:
     image: "vincetse/todos-api"
@@ -28,6 +46,10 @@ services:
     - "release"
     depends_on:
     - "db"
+    deploy:
+      restart_policy:
+        condition: "none"
+        max_attempts: 0
 
   db:
     image: "postgres:11-alpine"
