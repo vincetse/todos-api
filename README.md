@@ -6,6 +6,8 @@
 
 https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-one
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## Additional References
 
 1. https://andycroll.com/ruby/choose-uuids-for-model-ids-in-rails/
