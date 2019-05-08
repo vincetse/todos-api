@@ -33,7 +33,7 @@
   "image": "heroku/ruby",
   "addons": [
     {
-      "plan": "heroku-redis:hobby-dev"
+      "plan": "newrelic:wayne"
     },
     {
       "plan": "heroku-postgresql:hobby-dev",
