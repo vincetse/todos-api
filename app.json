@@ -40,6 +40,9 @@
       "options": {
         "version": "10"
       }
+    },
+    {
+      "plan": "securekey:fortnightly"
     }
   ],
   "buildpacks": [
