@@ -1,4 +1,5 @@
 api = :3000/todos
+api = http://prod-002.hx6cytr37i.us-east-1.elasticbeanstalk.com/todos
 
 run: run1 run2
 
@@ -24,3 +25,12 @@ run2:
 		http --verbose DELETE $(api)/$${ID} < /dev/null; \
 	done
 	http $(api)
+
+wrk:
+	wrk \
+		--connections 30 \
+		--duration 120s \
+		--threads 2 \
+		--rate 50 \
+		--latency \
+		$(api)
