@@ -16,7 +16,7 @@ create:
 		--database.instance db.t2.micro \
 		--database.username postgres \
 		--database.password p0stgre5
-	eb setenv SECRET_KEY_BASE=$(shell rake secret) PORT=80
+	eb setenv SECRET_KEY_BASE=$(shell rake secret)
 
 delete:
 	eb terminate $(env) --force
