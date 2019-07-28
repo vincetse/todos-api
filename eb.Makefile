@@ -1,9 +1,6 @@
 env ?= prod
 
-init:
-	eb setenv SECRET_KEY_BASE=$(shell rake secret) PORT=80
-
-create: init
+create:
 	eb create $(env) \
 		--instance_type t2.micro \
 		--platform "ruby-2.6-(puma)" \
@@ -16,10 +13,10 @@ create: init
 		--vpc.elbsubnets subnet-025f69124e2531f04,subnet-0b20e2a7fd2f0883e \
 		--vpc.securitygroups sg-015ee79a11c13f8fc \
 		--database \
-		--database.engine postgres \
 		--database.instance db.t2.micro \
 		--database.username postgres \
 		--database.password p0stgre5
+	eb setenv SECRET_KEY_BASE=$(shell rake secret) PORT=80
 
 delete:
 	eb terminate $(env) --force
