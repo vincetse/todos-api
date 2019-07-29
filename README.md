@@ -13,3 +13,5 @@ https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-one
 1. https://andycroll.com/ruby/choose-uuids-for-model-ids-in-rails/
 1. https://blog.codeship.com/when-to-be-concerned-about-concerns/
 1. https://stackoverflow.com/questions/30355569/rails-application-deployed-on-elastic-beanstalk-with-puma-fails-502-errors-on
+1. https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html
+1. https://blog.memcachier.com/2019/05/06/rails-on-elastic-beanstalk/

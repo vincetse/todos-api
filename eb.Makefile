@@ -1,6 +1,7 @@
 env ?= prod
 
 create:
+	$(eval password = $(shell uuidgen))
 	eb create $(env) \
 		--instance_type t2.micro \
 		--platform "ruby-2.6-(puma)" \
@@ -15,7 +16,10 @@ create:
 		--database \
 		--database.instance db.t2.micro \
 		--database.username postgres \
-		--database.password p0stgre5
+		--database.password '$(password)' \
+		--envvars SECRET_KEY_BASE=$(shell rake secret)
+
+secret:
 	eb setenv SECRET_KEY_BASE=$(shell rake secret)
 
 delete:
