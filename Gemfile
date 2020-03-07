@@ -34,7 +34,7 @@ group :development, :test do
   gem 'bullet'
   gem 'simplecov'
   gem 'simplecov-console'
-  gem 'coveralls', require: false
+  gem 'coveralls', '~> 0.8.23', require: false
 end
 
 group :development do
