@@ -1,0 +1,31 @@
+# https://gorails.com/episodes/github-actions-continuous-integration-ruby-on-rails
+# https://boringrails.com/articles/building-a-rails-ci-pipeline-with-github-actions/
+name: CI via Herokuish
+on: [push, pull_request]
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:11
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: test
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - "5432:5432"
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build and run tests
+        env:
+          DATABASE_URL: postgres://postgres:postgres@postgres:5432/test
+          RAILS_ENV: test
+          DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: true
+        uses: vincetse/herokuish-action@dev
