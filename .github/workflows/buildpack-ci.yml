@@ -1,13 +1,11 @@
-# https://gorails.com/episodes/github-actions-continuous-integration-ruby-on-rails
-# https://boringrails.com/articles/building-a-rails-ci-pipeline-with-github-actions/
-name: CI via Herokuish
+name: CI
 on: [push, pull_request]
 jobs:
   ci:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:11
+        image: infrastructureascode/postgres:11-alpine
         env:
           POSTGRES_USER: postgres
           POSTGRES_DB: test
@@ -25,7 +23,8 @@ jobs:
 
       - name: Build and run tests
         env:
+          PGSSLMODE: require
           DATABASE_URL: postgres://postgres:postgres@postgres:5432/test
           RAILS_ENV: test
           DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: true
-        uses: vincetse/herokuish-action@dev
+        uses: buildpack-ci/run-tests@master
