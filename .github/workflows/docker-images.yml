@@ -31,5 +31,5 @@ jobs:
                --rm -t docker.pkg.github.com/${GITHUB_REPOSITORY}/app
                .
 
-      - name: Show images
-        run: docker images
+      - name: Inspect images
+        run: docker buildx imagetools inspect docker.pkg.github.com/${GITHUB_REPOSITORY}/app:latest
