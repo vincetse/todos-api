@@ -39,7 +39,7 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64/v8,linux/arm/v6
           push: true
-          tags: vincetse/todos-api/app:latest
+          tags: docker.pkg.github.com/vincetse/todos-api/app:latest
 
       - name: Inspect images
         run: docker buildx imagetools inspect docker.pkg.github.com/vincetse/todos-api/app:latest
