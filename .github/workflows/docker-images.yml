@@ -42,4 +42,4 @@ jobs:
         run: echo ${{ steps.buildx.outputs.platforms }}
 
       - name: Build arm32v6 image
-        run: docker buildx build --platform linux/arm/v6 --rm -t ${IMAGE} .
+        run: docker buildx build --platform linux/arm/v6 --rm -t docker.pkg.github.com/${GITHUB_REPOSITORY}/app .
