@@ -1,0 +1,45 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  docker-images:
+    runs-on: ubuntu-latest
+    env:
+      IMAGE: docker.pkg.github.com/${GITHUB_REPOSITORY}/app
+    services:
+      postgres:
+        image: infrastructureascode/postgres:11-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: test
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - "5432:5432"
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up QEMU
+        id: qemu
+        uses: docker/setup-qemu-action@v1
+        with:
+          image: tonistiigi/binfmt:latest
+          platforms: all
+
+      - name: Available platforms
+        run: echo ${{ steps.qemu.outputs.platforms }}
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+        with:
+          version: latest
+
+      - name: Available platforms
+        run: echo ${{ steps.buildx.outputs.platforms }}
+
+      - name: Build arm32v6 image
+        run: docker buildx build --platform linux/arm/v6 --rm -t ${IMAGE} .
