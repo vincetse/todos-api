@@ -1,7 +1,7 @@
 name: Docker Images
 on: [push, pull_request]
 env:
-  IMAGE: ghcr.io/${{ env.GITHUB_REPOSITORY }}
+  IMAGE: ghcr.io/${{ github.repository }}
 jobs:
   docker-images:
     runs-on: ubuntu-latest
