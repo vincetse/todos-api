@@ -5,9 +5,36 @@ env:
 jobs:
   docker-images:
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: infrastructureascode/postgres:11-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: test
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - "5432:5432"
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - uses: actions/checkout@v2
 
+      # Build and run tests first before building and pushing the
+      # the images to the registry.
+      - name: Build and run tests
+        env:
+          PGSSLMODE: require
+          DATABASE_URL: postgres://postgres:postgres@postgres:5432/test
+          RAILS_ENV: test
+          DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: true
+        uses: buildpack-ci/run-tests@master
+
+      # Tests passed.  Now build and push multiarch images.
       - name: Login to GitHub Packages Docker Registry
         uses: docker/login-action@v1
         with:
