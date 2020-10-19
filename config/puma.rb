@@ -8,6 +8,8 @@ threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
 threads threads_count, threads_count
 
 workers ENV.fetch("WEB_CONCURRENCY") { 2 }
+worker_timeout ENV.fetch("WORKER_TIMEOUT") { 60 }
+worker_boot_timeout ENV.fetch("WORKER_BOOT_TIMEOUT") { 60 }
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
