@@ -1,4 +1,5 @@
 FROM ruby:2.7.2-slim
+LABEL maintainer "Vince Tse <vincetse@users.noreply.github.com>"
 
 RUN \
   apt-get update -qq && \
@@ -17,3 +18,5 @@ RUN bundle install
 
 WORKDIR /app
 COPY . /app
+
+CMD ["foreman", "run", "web"]

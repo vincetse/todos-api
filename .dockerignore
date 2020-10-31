@@ -1,4 +1,7 @@
+.codeclimate.yml
 .git
 .git*
+.travis.yml
 Dockefile
 docker-compose.yml
+vendor
