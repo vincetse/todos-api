@@ -27,4 +27,4 @@ jobs:
           DATABASE_URL: postgres://postgres:postgres@postgres:5432/test
           RAILS_ENV: test
           DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: true
-        uses: buildpack-ci/run-tests@master
+        uses: buildpack-ci/run-tests@v1
