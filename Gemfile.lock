@@ -218,7 +218,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 5.0)
   rack-cors (~> 1.1)
-  rails (~> 5.2.4.4)
+  rails (~> 5.2.4.6)
   rspec-rails (~> 3.9)
   shoulda-matchers (~> 4.3)
   simplecov
