@@ -1,5 +1,8 @@
 FROM ruby:2.7.6-slim
 
+ENV PORT 3000
+EXPOSE 3000
+
 RUN \
   apt-get update -qq && \
   apt-get install -qq \
@@ -17,3 +20,5 @@ RUN bundle install
 
 WORKDIR /app
 COPY . /app
+
+CMD foreman run web
