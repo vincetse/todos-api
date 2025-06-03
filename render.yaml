@@ -12,10 +12,10 @@ services:
     plan: free
     branch: main
     buildCommand: bundle install
-    preDeployCommand: rake db:migrate
+    #preDeployCommand: rake db:migrate
     startCommand: bundle exec puma -C config/puma.rb
     autoDeployTrigger: checksPass
-    maxShutdownDelaySeconds: 120
+    #maxShutdownDelaySeconds: 120
     envVars:
       - key: DATABASE_URL
         fromDatabase:
