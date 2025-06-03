@@ -1,4 +1,4 @@
-FROM ruby:2.7.6-slim
+FROM ruby:3.4.4-slim
 
 ENV PORT 3000
 EXPOSE 3000
@@ -16,7 +16,7 @@ RUN \
 
 WORKDIR /tmp
 COPY Gemfile* /tmp/
-RUN bundle install
+#RUN bundle install
 
 WORKDIR /app
 COPY . /app
