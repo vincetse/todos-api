@@ -7,6 +7,7 @@ services:
     region: oregon
     plan: free
     branch: main
+    autoDeployTrigger: checksPass
     buildCommand: bundle install
     #preDeployCommand: rake db:migrate
     startCommand: bundle exec puma -C config/puma.rb
