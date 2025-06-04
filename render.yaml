@@ -12,6 +12,7 @@ services:
     startCommand: bundle exec puma -C config/puma.rb
     autoDeployTrigger: checksPass
     #maxShutdownDelaySeconds: 120
+    healthCheckPath: /health_check
     envVars:
       - key: DATABASE_URL
         fromDatabase:
