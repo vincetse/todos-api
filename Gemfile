@@ -19,6 +19,7 @@ gem 'puma', '~> 6.4', '>= 6.4.2'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'mutex_m', '~> 0.3.0'
 gem 'bigdecimal', '~> 1.2', '>= 1.2.7'
+gem 'foreman', '~> 0.88.1'
 
 # https://stackoverflow.com/questions/71191685/visit-psych-nodes-alias-unknown-alias-default-psychbadalias
 gem 'psych', '< 4'

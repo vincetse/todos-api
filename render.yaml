@@ -10,7 +10,7 @@ services:
     autoDeployTrigger: checksPass
     buildCommand: bundle install
     #preDeployCommand: rake db:migrate
-    startCommand: bundle exec puma -C config/puma.rb
+    startCommand: foreman start
     #maxShutdownDelaySeconds: 120
     healthCheckPath: /health_check
     envVars:
