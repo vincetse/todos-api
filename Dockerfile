@@ -1,4 +1,4 @@
-FROM ruby:3.4.4-slim
+FROM ruby:3.4.8-slim
 
 ENV PORT 3000
 EXPOSE 3000

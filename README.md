@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/vincetse/todos-api.svg?branch=master)](https://travis-ci.org/vincetse/todos-api)
-[![Maintainability](https://api.codeclimate.com/v1/badges/e5bd3dcdec3472627aab/maintainability)](https://codeclimate.com/github/vincetse/todos-api/maintainability)
-[![Coverage Status](https://coveralls.io/repos/github/vincetse/todos-api/badge.svg?branch=master)](https://coveralls.io/github/vincetse/todos-api?branch=master)
+[![Build Status](https://github.com/vincetse/todos-api/actions/workflows/ci-build.yml/badge.svg?branch=main)](https://github.com/vincetse/todos-api/actions/workflows/ci-build.yml)
+[![Maintainability](https://qlty.sh/gh/vincetse/projects/todos-api/maintainability.svg)](https://qlty.sh/gh/vincetse/projects/todos-api)
+[![Coverage Status](https://coveralls.io/repos/github/vincetse/todos-api/badge.svg?branch=main)](https://coveralls.io/github/vincetse/todos-api?branch=main)
 
 # Todos API
 

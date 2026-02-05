@@ -1,11 +1,11 @@
-name: CI
+name: Buildpack
 on: [push, pull_request]
 jobs:
   ci:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: infrastructureascode/postgres:11-alpine
+        image: infrastructureascode/postgres:18-alpine
         env:
           POSTGRES_USER: postgres
           POSTGRES_DB: test
@@ -19,7 +19,7 @@ jobs:
           --health-retries 5
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
 
       - name: Build and run tests
         env:
