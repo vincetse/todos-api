@@ -49,3 +49,8 @@ jobs:
           bundle exec rake db:create
           bundle exec rake db:migrate
           bundle exec rspec
+
+      - uses: qltysh/qlty-action/coverage@v2
+        with:
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: coverage/.resultset.json
