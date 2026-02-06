@@ -58,4 +58,4 @@ ENV \
 USER nobody
 
 EXPOSE 3000
-CMD foreman run web
+CMD foreman start
