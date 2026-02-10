@@ -93,8 +93,8 @@ RSpec.describe 'Items API', type: :request do
     before { put "/todos/#{todo_id}/items/#{id}", params: valid_attributes }
 
     context 'when item exists' do
-      it 'returns status code 204' do
-        expect(response).to have_http_status(204)
+      it 'returns status code 200' do
+        expect(response).to have_http_status(200)
       end
 
       it 'updates the item' do
